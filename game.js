@@ -72,6 +72,10 @@ function Amp() {
   this.right = function() {
     this.vx += this.g + 5;
   }
+
+  this.goTo = function(x) {
+    this.vx += x;
+  }
 }
 
 let char
@@ -134,6 +138,16 @@ function draw() {
       works.splice(i, 1);
     }
   }
+}
+
+function touchStarted() {
+  char.jump()
+}
+
+var value = 0;
+
+function touchMoved() {
+  char.goTo(value += 0.05)
 }
 
 function keyPressed() {
