@@ -78,6 +78,14 @@ function Amp() {
   }
 }
 
+function Text() {
+
+  this.show = function(msg) {
+    text('เค้าสัญญาณว่าเกมหน้า จะดีกว่านี้ :P', 10, 50);
+    textSize(42);
+  }
+}
+
 let char
 let work
 const works = []
@@ -114,14 +122,17 @@ function setup() {
               works.push(new Work(220));
               setTimeout(function () {
                 works.push(new Work(164));
+                shower.push(new Text());
               }, 500);
             }, 500);
           }, 500);
         }, 500);
       }, 500);
     }, 500);
-  }, 10000);
+  }, 5000);
 }
+
+const shower = []
 
 function draw() {
   background('#fff');
@@ -137,6 +148,10 @@ function draw() {
     if (works[i].offscreen()) {
       works.splice(i, 1);
     }
+  }
+
+  for (let i = shower.length - 1; i >= 0; i--) {
+    shower[i].show()
   }
 }
 
